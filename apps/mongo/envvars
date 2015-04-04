@@ -1,0 +1,8 @@
+# env for redis.service
+
+# https://registry.hub.docker.com/_/mongo/
+IMAGE='mongo:latest'
+
+# On MacOS, have to use ephemeral as redis backing
+# because chown is not allowed on synced folder from inside of container
+OPTS='-v /var/lib/data/mongo:/data/db/ -p 27017:27017'

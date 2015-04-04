@@ -1,0 +1,23 @@
+[Unit]
+Description=redis
+Requires=docker.service
+After=docker.service
+Requires=skydns.service
+After=skydns.service
+
+[Service]
+EnvironmentFile=/etc/environment
+EnvironmentFile=/var/lib/apps/redis/envvars
+TimeoutStartSec=0
+ExecStartPre=/usr/bin/docker pull $IMAGE
+ExecStartPre=-/usr/bin/docker rm %n
+ExecStart=/usr/bin/sh -c "/usr/bin/docker run  --rm --name %n $OPTS $IMAGE"
+ExecStop=/usr/bin/docker stop %n
+# Registering the DNS name
+ExecStartPost=/bin/bash -c "/var/lib/apps/bin/dns-set 'redis' ${COREOS_PRIVATE_IPV4}"
+# Clean up
+ExecStopPost=-/var/lib/apps/bin/dns-delete 'redis'
+RestartSec=10
+Restart=always
+Restart=on-failure
+

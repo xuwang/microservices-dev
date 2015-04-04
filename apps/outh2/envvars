@@ -1,0 +1,2 @@
+# docker image: xuwang/pyweb, to build, see /var/lib/apps/pyweb/README.md
+IMAGE=xuwang/pyweb:latest

@@ -1,0 +1,12 @@
+[Unit]
+Description=Host DNS Register
+Requires=skydns.service
+After=skydns.service
+
+[Service]
+EnvironmentFile=/etc/environment
+EnvironmentFile=/var/lib/apps/skydns/envvars
+ExecStart=/var/lib/apps/bin/dns-register %H ${COREOS_PRIVATE_IPV4}
+ExecStop=/var/lib/apps/bin/dns-delete %H
+Restart=always
+RestartSec=5

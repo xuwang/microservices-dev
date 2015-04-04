@@ -1,0 +1,10 @@
+# env for redis.service
+
+# https://registry.hub.docker.com/_/redis/
+IMAGE='redis:latest'
+
+# On MacOS chown is not allowed on synced folder from inside of container
+# To work around this problem:
+#	chown -R 999 data/mongo
+#	run docker with -u="root"
+OPTS='-v /var/lib/data/redis:/data -p 6379:6379'

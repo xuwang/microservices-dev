@@ -19,5 +19,4 @@ ExecStartPost=/bin/bash -c "/var/lib/apps/bin/dns-set 'redis' ${COREOS_PRIVATE_I
 ExecStopPost=-/var/lib/apps/bin/dns-delete 'redis'
 RestartSec=10
 Restart=always
-Restart=on-failure
 

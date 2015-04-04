@@ -21,4 +21,3 @@ ExecStartPost=/var/lib/apps/bin/dns-set 'registry' "%H.${LOCAL_DOMAIN}"
 ExecStopPost=-/var/lib/apps/bin/dns-delete 'registry'
 RestartSec=10
 Restart=always
-Restart=on-failure

@@ -19,5 +19,3 @@ ExecStartPost=/bin/bash -c "/var/lib/apps/bin/dns-set 'mongo' ${COREOS_PRIVATE_I
 ExecStopPost=-/var/lib/apps/bin/dns-delete 'mongo'
 RestartSec=10
 Restart=always
-Restart=on-failure
-

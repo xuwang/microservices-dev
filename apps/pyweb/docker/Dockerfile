@@ -5,7 +5,6 @@
 FROM ubuntu:14.04
 MAINTAINER Xu Wang <xuwang@gmail.com>
 
-
 # Add the application resources URL and install packages
 ENV DEBIAN_FRONTEND noninteractive
 RUN  apt-get update && apt-get install -yq \
@@ -43,3 +42,5 @@ WORKDIR /application
 VOLUME /application
 
 CMD /run.sh
+
+ONBUILD RUN rm -fr /application

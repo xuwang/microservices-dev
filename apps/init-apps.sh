@@ -4,7 +4,6 @@
 # NOTE: the start order is significant
 SERVICES="
 	registry
-	fleet-ui 
 	redis
 	mongo
 	"

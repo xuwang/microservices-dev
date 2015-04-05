@@ -1,4 +1,4 @@
-# Docker BasedMicroService Demo On CoreOS
+# MicroServices Development Env with Vagrant/CoreOS
 
 
 

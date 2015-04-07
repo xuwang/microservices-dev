@@ -4,8 +4,19 @@ An OAuth2 Provider which supporting the Resource Owner Password Credentials Gran
 This implementation is based on [Flask-sentinel][flask-sentinel].
 
 ##Prerequisites
-	* mongo.service
-	* redis.service
+* registry.service, to start:
+
+		fleetctl start /var/lib/apps/registry/units/registry.service
+* mongo.service, to start:
+
+		fleetctl start /var/lib/apps/redis/units/redis.service
+* redis.service, to start:
+
+		fleetctl start /var/lib/apps/mongo/units/mongo.service
+* docker image xuwang/pyweb, to build:
+
+		/var/lib/apps/pyweb/build.sh	
+
 ##Start Service
 	fleetctl start /var/lib/apps/oauth/units/oauth.service
 

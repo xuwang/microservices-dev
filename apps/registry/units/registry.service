@@ -17,7 +17,8 @@ ExecStart=/usr/bin/docker run  --rm --name %n -p 80:5000 \
         -v /var/lib/apps-data/registry:/data -v /var/lib/apps/registry:/registry-conf \
         -e DOCKER_REGISTRY_CONFIG=/registry-conf/config.yml \
         -e SETTINGS_FLAVOR=prod registry:latest
-ExecStartPost=/var/lib/apps/bin/dns-set 'registry' "%H.${LOCAL_DOMAIN}"
-ExecStopPost=-/var/lib/apps/bin/dns-delete 'registry'
+#ExecStartPost=/var/lib/apps/bin/dns-set %p $COREOS_PUBLIC_IPV4
+ExecStartPost=/var/lib/apps/bin/dns-set %p "%H.${LOCAL_DOMAIN}"
+ExecStopPost=-/var/lib/apps/bin/dns-delete %p
 RestartSec=10
 Restart=always

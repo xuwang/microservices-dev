@@ -4,3 +4,4 @@
 log 
 tarballs
 .gitconfig
+*.pyc

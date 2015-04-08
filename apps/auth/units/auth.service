@@ -1,0 +1,16 @@
+[Unit]
+Description=SSO Reverse Proxy Service
+After=registry.service
+Requires=fleet-ui.service
+After=fleet-ui.service
+
+[Service]
+EnvironmentFile=/etc/environment
+EnvironmentFile=/var/lib/apps/auth/envvars
+TimeoutStartSec=0
+#ExecStartPre=/var/lib/apps/bin/dkpull $IMAGE
+ExecStartPre=-/usr/bin/docker rm %n
+ExecStart=/usr/bin/sh -c "/usr/bin/docker run --rm --name %n $OPTS $IMAGE"
+ExecStop=/usr/bin/docker stop %n
+RestartSec=10
+Restart=always

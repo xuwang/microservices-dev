@@ -21,10 +21,21 @@ RUN a2enmod rewrite \
       proxy_wstunnel \
 	  ssl
 
-EXPOSE 80 443
-VOLUME /etc/apache2/sites-enabled /etc/apache2/conf-enabled /var/www /usr/lib/cgi-bin /etc/ssl
-
+	  
+ADD apache2/mellon /etc/apache2/mellon
+ADD apache2/ssl /etc/apache2/ssl
 ADD start.sh /start.sh
 RUN chmod 0755 /start.sh
+
+EXPOSE 80 443
+
+# Expose apache conf, cgi-bin and docroot
+VOLUME /etc/apache2/sites-enabled 
+VOLUME /etc/apache2/conf-enabled 
+VOLUME /etc/apache2/ssl 
+VOLUME /etc/apache2/mellon 
+VOLUME /usr/lib/cgi-bin 
+VOLUME /var/www
+
 CMD ["bash", "start.sh"]
 

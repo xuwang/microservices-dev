@@ -1,6 +1,5 @@
 [Unit]
 Description=fleet-ui
-After=registry.service
 Requires=skydns.service
 After=skydns.service
 

@@ -1,7 +1,8 @@
 # docker image: xuwang/apache-mellon, to build, see /var/lib/apps/auth/docker/
 IMAGE=xuwang/apache-mellon:latest
 OPTS='-p 443:443 \
-	-v /var/lib/apps/auth/vols/etc/ssl:/etc/ssl \
-	-v /var/lib/apps/auth/vols/etc/apache2/sites-enabled:/etc/apache2/sites-enabled \
-	-v /var/lib/apps/auth/vols/etc/apache2/conf-enabled:/etc/apache2/conf-enabled \
+	-v /var/lib/apps/auth/vols/apache2/sites-enabled:/etc/apache2/sites-enabled \
+	-v /var/lib/apps/auth/vols/apache2/conf-enabled:/etc/apache2/conf-enabled \
+	-v /var/lib/apps/auth/vols/apache2/mellon:/etc/apache2/mellon \
+	-v /var/lib/apps/auth/vols/apache2/ssl:/etc/apache2/ssl \
 	-v /var/lib/apps/auth/vols/usr/lib/cgi-bin:/usr/lib/cgi-bin'

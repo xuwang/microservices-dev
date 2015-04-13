@@ -1,8 +1,9 @@
 [Unit]
 Description=SSO Reverse Proxy Service
-After=registry.service
-#Requires=fleet-ui.service
-#After=fleet-ui.service
+#Requires=docker.service
+#After=docker.service
+Wants=fleet-ui.service
+After=fleet-ui.service
 
 [Service]
 EnvironmentFile=/etc/environment

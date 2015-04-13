@@ -1,7 +1,7 @@
 [Unit]
 Description=fleet-ui
-Requires=skydns.service
-After=skydns.service
+Requires=docker.service
+After=docker.service
 
 [Service]
 EnvironmentFile=/etc/environment

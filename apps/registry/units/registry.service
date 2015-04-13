@@ -2,8 +2,6 @@
 Description=Docker Image Registry
 Requires=docker.service
 After=docker.service
-Requires=skydns.service
-After=skydns.service
 
 [Service]
 EnvironmentFile=/etc/environment
@@ -18,7 +16,7 @@ ExecStart=/usr/bin/docker run  --rm --name %n -p 80:5000 \
         -e DOCKER_REGISTRY_CONFIG=/registry-conf/config.yml \
         -e SETTINGS_FLAVOR=prod registry:latest
 #ExecStartPost=/var/lib/apps/bin/dns-set %p $COREOS_PUBLIC_IPV4
-ExecStartPost=/var/lib/apps/bin/dns-set %p "%H.${LOCAL_DOMAIN}"
+ExecStartPost=/var/lib/apps/bin/dns-set %p "${COREOS_PRIVATE_IPV4}"
 ExecStopPost=-/var/lib/apps/bin/dns-delete %p
 RestartSec=10
 Restart=always

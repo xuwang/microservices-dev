@@ -1,8 +1,7 @@
 [Unit]
 Description=mongo
-After=registry.service
-Requires=skydns.service
-After=skydns.service
+Requires=docker.service
+After=docker.service
 
 [Service]
 EnvironmentFile=/etc/environment

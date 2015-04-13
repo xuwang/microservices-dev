@@ -1,0 +1,27 @@
+<EntityDescriptor entityID="https://fleet-ui.docker.local" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIICvDCCAaQCCQCIezvmtG6n+DANBgkqhkiG9w0BAQsFADAgMR4wHAYDVQQDExVm
+bGVldC11aS5kb2NrZXIubG9jYWwwHhcNMTUwNDEzMDYxNDE1WhcNMjUwNDEyMDYx
+NDE1WjAgMR4wHAYDVQQDExVmbGVldC11aS5kb2NrZXIubG9jYWwwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDemYpI31BFZl6GIZosVrrxuKSEvqGJ6+D2
+Lvk4cR9aL5TaOODuis7AVWsgmdOxo8nUd6ZgI5079MairN+HphejRbjJMCIK6fFb
+a5imnoyRLqri6epYxYJTamqOGfOQVjRKjh7FOXxuts8XIGtRkhoiz5026PGxks9d
+KjKLDNAi6hoTbS5BnmWkTftKJ8I882zihrFon0IX4B7xs5M2RuWf8abc5iMvpVoo
+mn+PFhKl2Kbxnk7IMzqhOlmsrSklh65wzIB83xIp9NNRrZgrw5tgfRxiORyfyIhB
+Ob/2xipDr/pJQSMHTW5j9upWTMWUo0hHrOcmg1ixQlie0qT4oX6bAgMBAAEwDQYJ
+KoZIhvcNAQELBQADggEBAC6PboECGfoi5kBLVMK8MwKtGddpDkWaod8ssb8wBOy1
+KXIeovOxWMHr1pdScdY13Oqkl5wX3u+/LtfBryjTDkVtG0XIpbaL1ZFJx3u6jnFJ
+O8368TpPhco3FmefqlvNe40sP2Jw78Mqn4FBuK5nEYz8Xh+dngJs7yqzUlwvd3pB
+NzPg4rrYsBvKmdi4ALygzaIgPdrLVuQrDR20ZBt4ReEES2mbV3yHC4zyRkCkk60S
+Gx7j96dosHvYxQLWortT4lmlh1S/juAmL7DtAcVoNYCLFMxzkpiqewArfKMUfeHo
+ceu9DPHm9KWqRLjmGjlwcSt6/fISqDHXxvRDfRJp+W8=</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fleet-ui.docker.local/mellon/logout"/>
+    <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fleet-ui.docker.local/mellon/postResponse" index="0"/>
+  </SPSSODescriptor>
+</EntityDescriptor>

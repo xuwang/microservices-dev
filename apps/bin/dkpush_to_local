@@ -10,7 +10,7 @@ for i in $*
 do
 	id=`docker inspect --format "{{ .Id }}" $i`
 	echo docker tag $id "registry.${LOCAL_DOMAIN}/$i"
-	docker tag $id "registry.${LOCAL_DOMAIN}/$i"
-	echo docker push "registry.${LOCAL_DOMAIN}/$i"
-	docker push "registry.${LOCAL_DOMAIN}/$i"
+	docker tag -f $id "registry.${LOCAL_DOMAIN}/$i"
+	echo docker push  "registry.${LOCAL_DOMAIN}/$i"
+	docker push  "registry.${LOCAL_DOMAIN}/$i"
 done

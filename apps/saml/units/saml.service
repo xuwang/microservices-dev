@@ -1,0 +1,15 @@
+[Unit]
+Description=saml
+
+[Service]
+EnvironmentFile=/etc/environment
+EnvironmentFile=/var/lib/apps/saml/envvars
+#ExecStartPre=/var/lib/apps/bin/dkpull $IMAGE
+ExecStartPre=/usr/bin/bash -c "docker history $IMAGE > /dev/null 2>&1 || ( cd /var/lib/apps/saml; bash build.sh )"
+ExecStartPre=-/usr/bin/docker rm -f %n
+ExecStart=/usr/bin/bash -c "/usr/bin/docker run --rm --name %n $OPTS $IMAGE"
+ExecStartPost=/var/lib/apps/bin/dns-set %p "${COREOS_PRIVATE_IPV4}"
+ExecStop=-/usr/bin/docker stop %n
+ExecStopPost=-/var/lib/apps/bin/dns-delete %p
+RestartSec=10
+Restart=always

@@ -1,0 +1,6 @@
+IMAGE=dockerage/simplesamlphp
+OPTS="-p 8080:80 -p 8443:443 \
+	-v /var/lib/apps/saml/etc/simplesamlphp/config:/var/simplesamlphp/config \
+	-v /var/lib/apps/saml/etc/simplesamlphp/cert:/var/simplesamlphp/cert \
+	-v /var/lib/apps/saml/etc/simplesamlphp/metadata:/var/simplesamlphp/metadata \
+	-v /var/lib/apps/saml/etc/apache2/sites-enabled:/etc/apache2/sites-enabled"

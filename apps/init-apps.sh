@@ -3,11 +3,12 @@
 # Start initial services at boot
 # NOTE: the start order is significant
 SERVICES="
-	#registry	
-	#redis
-	#mongo
-	#fleet-ui
+	registry
 	#auth
+	#fleet-ui	
+	#mongo
+	#oauth
+	#redis
 	"
 for svs in $SERVICES ; do
 	unit=/var/lib/apps/$svs/units/$svs.service

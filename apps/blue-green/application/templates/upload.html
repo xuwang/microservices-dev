@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="starter-template">
+                <div class="row">
+					{% if filename %}
+  				  	<img src="{{ url_for('uploaded_file', filename=filename) }}">
+					{% else %}
+					<h1>no image for whatever reason</h1>
+					{% endif %}
+                </div>
+				
+                <div class="row">
+			    <h1>Upload new File</h1>
+				    <form method=post enctype=multipart/form-data action=/upload>
+				      <p><input type=file name=file>
+				         <input type=submit value=Upload>
+				    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </body>
+</html>

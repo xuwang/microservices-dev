@@ -1,0 +1,13 @@
+# docker image: xuwang/pyweb, to build, see /var/lib/apps/pyweb/README.md
+IMAGE=xuwang/pyweb:latest
+OPTS_BLUE='-p 8081:80 -v /var/lib/apps/blue-green/application:/application \
+			-e "COLOR=BLUE" \
+			-e "SERVER=webapp-blue.service.docker.local:80" \
+			-e "ETCD=http://172.17.8.101:4001"'
+OPTS_GREEN='-p 8082:80 -v /var/lib/apps/blue-green/application:/application \
+			-e "COLOR=GREEN" \
+			-e "SERVER=webapp-green.service.docker.local:80" \
+			-e "ETCD=http://172.17.8.101:4001"'
+			
+PROXY_IMAGE=dockerage/nginx_lb:latest
+PROXY_OPTS='-p 8080:80 -e "ETCD=172.17.8.101:4001"'

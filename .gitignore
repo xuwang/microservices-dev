@@ -1,7 +1,8 @@
 .DS_Store
 .git
 .vagrant
-log 
-tarballs
 .gitconfig
 *.pyc
+log
+tarballs
+projects

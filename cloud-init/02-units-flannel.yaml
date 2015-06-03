@@ -140,3 +140,4 @@
               ExecStopPost=-/var/lib/apps/bin/dns-delete 'registry'
               RestartSec=5
               Restart=always
+              

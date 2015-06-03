@@ -27,7 +27,7 @@
               Service=docker.service
               BindIPv6Only=both
               
-              [Install] 
+              [Install]
               WantedBy=sockets.target
               WantedBy=docker.service
         - name: skydns.service
@@ -40,7 +40,7 @@
               Requires=systemd-resolved.service
               After=systemd-resolved.service
               
-              [Service]  
+              [Service]
               Type=simple
               Restart=always
               RestartSec=5
@@ -76,26 +76,15 @@
               ExecStop=/var/lib/apps/bin/dns-delete %H
               Restart=always
               RestartSec=5
-        - name: registry.service
+        - name: fleetctl-start.service
           command: start
-          content: |             
+          content: |
               [Unit]
-              Description=Docker Image Registry
+              Description=Start initial fleet service units
               Requires=docker.service
               After=docker.service
-              ConditionHost=n1
               
               [Service]
               EnvironmentFile=/etc/environment
-              EnvironmentFile=/var/lib/apps/skydns/envvars
-              TimeoutStartSec=300
-              ExecStartPre=/usr/bin/bash -c "/var/lib/apps/bin/is_loaded registry:latest || /var/lib/apps/bin/dkload registry-latest.tgz || docker pull registry:latest"
-              ExecStartPre=-/usr/bin/docker rm -f %n
-              ExecStart=/usr/bin/docker run  --rm --name %n -p 80:5000 \
-                      -v /var/lib/apps-data/registry:/data -v /var/lib/apps/registry:/registry-conf \
-                      -e DOCKER_REGISTRY_CONFIG=/registry-conf/config.yml \
-                      -e SETTINGS_FLAVOR=prod registry:latest
-              ExecStartPost=/var/lib/apps/bin/dns-set 'registry' "%H.${LOCAL_DOMAIN}"
-              ExecStopPost=-/var/lib/apps/bin/dns-delete 'registry'
-              RestartSec=5
-              Restart=always
+              ExecStart=/usr/bin/bash /var/lib/apps/init-apps.sh
+              

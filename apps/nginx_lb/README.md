@@ -1,4 +1,6 @@
-# confd
+# A Nginx Load Blancer With Confd
+
+## confd
 
 `confd` is a lightweight configuration management tool focused on:
 

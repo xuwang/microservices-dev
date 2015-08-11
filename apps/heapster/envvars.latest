@@ -1,0 +1,52 @@
+# this is a unit env file
+#IMAGE=kubernetes/heapster:v0.16.1
+IMAGE=kubernetes/heapster:latest
+
+# docker run opts
+# OPTS=--link influxdb.service:influxdb
+OPTS=-p 8082:8082
+
+# arguments to docker container
+#ARGS=--source=\"cadvisor:coreos?fleetEndpoint=http://$COREOS_PRIVATE_IPV4:4001&cadvisorPort=8080\" \
+#--sink='influxdb:http://influxdb:8086' \
+#--vmodule=*=4
+
+#Usage of /usr/bin/heapster ( Heapster version 0.8) :
+#  -alsologtostderr=false: log to standard error as well as files
+#  -bq_account="": Service account email
+#  -bq_credentials_file="": Credential Key file (pem)
+#  -bq_id="": Client ID
+#  -bq_project_id="": Bigquery project ID
+#  -bq_secret="notasecret": Client Secret
+#  -cadvisor_port=8080: The port on which cadvisor binds to on all nodes.
+#  -coreos=false: When true, heapster looks will connect with fleet servers to get the list of nodes to monitor. It is expected that cadvisor will be #running on all the nodes at the port specified using flag '--cadvisor_port'. Use flag '--fleet_endpoints' to manage fleet endpoints to watch.
+#  -external_hosts_file="/var/run/heapster/hosts": A file that heapster refers to get a list of nodes to monitor.
+#  -fleet_endpoints="http://127.0.0.1:4001": Comma separated list of fleet server endpoints
+#  -kubelet_port="10250": Kubelet port
+#  -kubernetes_insecure=true: Trust Kubernetes master certificate (if using https)
+#  -kubernetes_master="": Kubernetes master IP
+#  -listen_ip="": IP to listen on, defaults to all IPs
+#  -log_backtrace_at=:0: when logging hits line file:N, emit a stack trace
+#  -log_dir="": If non-empty, write log files in this directory
+#  -logtostderr=false: log to standard error instead of files
+#  -max_procs=0: max number of CPUs that can be used simultaneously. Less than 1 for default (number of cores).
+#  -poll_duration=10s: Polling duration
+#  -port=8082: port to listen
+#  -sink="memory": Backend storage. Options are [memory | influxdb | bigquery | gcm ]
+#  -sink_influxdb_buffer_duration=10s: Time duration for which stats should be buffered in influxdb sink before being written as a single transaction
+#  -sink_influxdb_host="localhost:8086": InfluxDB host:port
+#  -sink_influxdb_name="k8s": Influxdb database name
+#  -sink_influxdb_password="root": InfluxDB password
+#  -sink_influxdb_username="root": InfluxDB username
+#  -sink_memory_ttl=1h0m0s: Time duration for which stats should be cached if the memory sink is used
+#  -stderrthreshold=0: logs at or above this threshold go to stderr
+#  -v=0: log level for V logs
+#  -vmodule=: comma-separated list of pattern=N settings for file-filtered logging
+
+ARGS=/usr/bin/heapster \
+    --coreos \
+    --cadvisor_port=8080 \
+    --sink=influxdb \
+    --sink_influxdb_host=influxdb.docker.local:8086 \
+    --fleet_endpoints=http://$COREOS_PRIVATE_IPV4:4001 \
+    --vmodule=*=4

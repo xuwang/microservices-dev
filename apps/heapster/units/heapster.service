@@ -1,0 +1,25 @@
+[Unit]
+Description=heapster
+Requires=docker.service
+After=docker.service
+Requires=influxdb.service
+After=influxdb.service
+
+[Service]
+EnvironmentFile=/etc/environment
+EnvironmentFile=/var/lib/apps/heapster/envvars
+TimeoutStartSec=20min
+ExecStartPre=/usr/bin/docker pull ${H_IMAGE}
+
+ExecStartPre=-/usr/bin/docker kill %n
+ExecStartPre=-/usr/bin/docker rm %n
+ExecStart=/usr/bin/bash -c "/usr/bin/docker run --rm --name %n ${H_OPTS} ${H_IMAGE} ${H_ARGS}"
+ExecStartPost=/var/lib/apps/bin/dns-set %p $COREOS_PUBLIC_IPV4
+ExecStopPost=-/var/lib/apps/bin/dns-delete %p
+ExecStop=-/usr/bin/docker stop %n
+RestartSec=10
+Restart=always
+Restart=on-failure
+
+[X-Fleet]
+X-ConditionMachineOf=influxdb.service

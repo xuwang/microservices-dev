@@ -1,0 +1,18 @@
+[Unit]
+Description=cAdvisor
+Requires=docker.service
+After=docker.service
+
+[Service]
+EnvironmentFile=/etc/environment
+EnvironmentFile=/var/lib/apps/heapster/envvars
+TimeoutStartSec=20min
+ExecStartPre=/usr/bin/docker pull ${C_IMAGE}
+ExecStart=/usr/bin/bash -c "/usr/bin/docker run --rm --name %n ${C_OPTS} ${C_IMAGE} ${C_ARGS}"
+ExecStop=-/usr/bin/docker stop %n
+RestartSec=10
+Restart=always
+Restart=on-failure
+
+[X-Fleet]
+Global=true

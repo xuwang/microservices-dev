@@ -13,7 +13,8 @@
                                 {"guest": 4001, "host": 4001,   "id": "etcd"},
                                 {"guest": 6379, "host": 6379,   "id": "redis"},
                                 {"guest": 3306, "host": 3306,   "id": "mysql"},
-                                {"guest": 27017, "host": 27017, "id": "mongodb"}
+                                {"guest": 27017, "host": 27017, "id": "mongodb"},
+                                {"guest": 8080, "host": 8080, "id": "apps"}
                                 ]
         },
         "n2": {

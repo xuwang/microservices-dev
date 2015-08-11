@@ -1,0 +1,29 @@
+[Unit]
+Description=grafana
+Requires=docker.service
+After=docker.service
+Requires=influxdb.service
+After=influxdb.service
+
+[Service]
+EnvironmentFile=/etc/environment
+EnvironmentFile=/var/lib/apps/grafana/envvars
+TimeoutStartSec=20min
+ExecStartPre=/var/lib/apps/bin/dkpull ${IMAGE}
+
+# Change killmode from "control-group" to "none" to let Docker remove
+# work correctly.
+KillMode=none
+
+ExecStartPre=-/usr/bin/docker kill %n
+ExecStartPre=-/usr/bin/docker rm %n
+ExecStart=/usr/bin/bash -c "/usr/bin/docker run --rm --name %n ${OPTS} ${IMAGE}"
+ExecStartPost=/var/lib/apps/bin/dns-set %p $COREOS_PUBLIC_IPV4
+ExecStopPost=-/var/lib/apps/bin/dns-delete %p
+ExecStop=-/usr/bin/docker stop %n
+RestartSec=10
+Restart=always
+Restart=on-failure
+
+[X-Fleet]
+X-ConditionMachineOf=influxdb.service

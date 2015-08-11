@@ -1,0 +1,17 @@
+# this is a unit env file
+IMAGE=google/cadvisor:latest
+
+OPTS=--volume=/:/rootfs:ro \
+  --volume=/var/run:/var/run:rw \
+  --volume=/sys:/sys:ro \
+  --volume=/var/lib/docker/:/var/lib/docker:ro \
+  --publish=8080:8080
+
+# Using influxdb as data storage
+#ARGS=-storage_driver=influxdb \
+#  -storage_driver_db=cadvisor \
+#  -storage_driver_host=influxdb.docker.local:8086 \
+#  -storage_driver_user=root \
+#  -storage_driver_password=root
+
+ARGS=--logtostderr

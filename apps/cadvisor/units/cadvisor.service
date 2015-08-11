@@ -1,18 +1,22 @@
 [Unit]
-Description=fleet-ui
+Description=cAdvisor
 Requires=docker.service
 After=docker.service
 
 [Service]
 EnvironmentFile=/etc/environment
-EnvironmentFile=/var/lib/apps/fleet-ui/envvars
+EnvironmentFile=/var/lib/apps/cadvisor/envvars
 TimeoutStartSec=20min
+ExecStartPre=/var/lib/apps/bin/dkpull ${IMAGE}
+ExecStartPre=-/usr/bin/docker kill %n
 ExecStartPre=-/usr/bin/docker rm %n
-ExecStartPre=/var/lib/apps/bin/dkpull ${FLEETUI_IMAGE}
-ExecStart=/usr/bin/bash -c "/usr/bin/docker run --rm --name %n ${OPTS} ${FLEETUI_IMAGE}"
+ExecStart=/usr/bin/bash -c "/usr/bin/docker run --rm --name %n ${OPTS} ${IMAGE} ${ARGS}"
 ExecStartPost=/var/lib/apps/bin/dns-set %p $COREOS_PUBLIC_IPV4
 ExecStopPost=-/var/lib/apps/bin/dns-delete %p
 ExecStop=-/usr/bin/docker stop %n
 RestartSec=10
 Restart=always
 Restart=on-failure
+
+[X-Fleet]
+Global=true

@@ -1,0 +1,8 @@
+# this is a unit env file
+#IMAGE=kubernetes/heapster_influxdb:v0.3
+IMAGE=kubernetes/heapster_influxdb:latest
+
+OPTS=-p 8083:8083 \
+    -p 8086:8086 \
+    -v /var/lib/apps-data/influxdb:/data \
+    -e DEBUG=true

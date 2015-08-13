@@ -1,8 +1,5 @@
 # this is a unit env file
-IMAGE=kubernetes/heapster_grafana:v0.6
-#IMAGE=kubernetes/heapster_grafana:latest
+IMAGE=grafana/grafana:latest
 
 # docker run opts
-OPTS=-p 8000:8080 \
-    -e INFLUXDB_HOST=influxdb.docker.local \
-    -e DEBUG=true
+OPTS=-p 3000:3000

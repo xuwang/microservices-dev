@@ -1,0 +1,2 @@
+INFLUXDB_ADMIN_USER="root"
+INFLUXDB_ADMIN_PWD="root@work"

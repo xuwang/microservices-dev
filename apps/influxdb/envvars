@@ -1,8 +1,12 @@
 # this is a unit env file
-#IMAGE=kubernetes/heapster_influxdb:v0.3
-IMAGE=kubernetes/heapster_influxdb:latest
+IMAGE=tutum/influxdb:0.9
 
 OPTS=-p 8083:8083 \
     -p 8086:8086 \
     -v /var/lib/apps-data/influxdb:/data \
-    -e DEBUG=true
+    -v /var/lib/apps/influxdb/config.toml:/config/config.toml \
+    -e ADMIN_USER=$INFLUXDB_ADMIN_USER \
+    -e INFLUXDB_INIT_PWD=$INFLUXDB_ADMIN_PWD \
+    -e PRE_CREATE_DB="cadvisor;sp500;test"
+
+ARGS=

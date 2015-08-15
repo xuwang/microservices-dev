@@ -23,6 +23,6 @@ H_ARGS=--source=\"cadvisor:coreos?fleetEndpoint=http://$COREOS_PRIVATE_IPV4:4001
 
 # grafana
 G_IMAGE=kubernetes/heapster_grafana:v0.7
-G_OPTS=-p 8000:8080 \
+G_OPTS=-p 3000:8080 \
     -e INFLUXDB_HOST=influxdb.docker.local \
     -e DEBUG=true

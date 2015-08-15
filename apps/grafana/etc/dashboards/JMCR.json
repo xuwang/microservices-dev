@@ -1,7 +1,7 @@
 {
-  "id": 1,
-  "title": "SP500",
-  "originalTitle": "SP500",
+  "id": 8,
+  "title": "JMCR",
+  "originalTitle": "JMCR",
   "tags": [],
   "style": "dark",
   "timezone": "browser",
@@ -33,404 +33,7 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "id": 1,
-          "interval": "1d",
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "hgih",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "high"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "aapl",
-              "query": "SELECT mean(high) FROM \"aapl\" WHERE $timeFilter GROUP BY time($interval)",
-              "rawQuery": false,
-              "tags": []
-            },
-            {
-              "alias": "low",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "low"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "aapl",
-              "query": "SELECT mean(low) FROM \"aapl\" WHERE $timeFilter GROUP BY time($interval)",
-              "tags": [],
-              "target": ""
-            },
-            {
-              "alias": "open",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "open"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "aapl",
-              "query": "SELECT mean(open) FROM \"aapl\" WHERE $timeFilter GROUP BY time($interval)",
-              "tags": [],
-              "target": ""
-            },
-            {
-              "alias": "close",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "close"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "aapl",
-              "query": "SELECT mean(close) FROM \"aapl\" WHERE $timeFilter GROUP BY time($interval)",
-              "tags": [],
-              "target": ""
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": "1d",
           "hideTimeOverride": true,
-          "title": "Prices",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ]
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "sp500",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 2,
-          "interval": "1d",
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "volume",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "volume"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "aapl",
-              "query": "SELECT mean(volume) FROM \"aapl\" WHERE $timeFilter GROUP BY time($interval)",
-              "rawQuery": false,
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": "1d",
-          "hideTimeOverride": true,
-          "title": "Volume",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ]
-        }
-      ],
-      "showTitle": true,
-      "title": "APPL"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "sp500",
-          "editable": true,
-          "error": false,
-          "fill": 0,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 1,
-          "interval": "1d",
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "hgih",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "high"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "ibm",
-              "query": "SELECT mean(high) FROM \"ibm\" WHERE $timeFilter GROUP BY time($interval)",
-              "rawQuery": false,
-              "tags": []
-            },
-            {
-              "alias": "low",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "low"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "ibm",
-              "query": "SELECT mean(low) FROM \"ibm\" WHERE $timeFilter GROUP BY time($interval)",
-              "tags": [],
-              "target": ""
-            },
-            {
-              "alias": "open",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "open"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "ibm",
-              "query": "SELECT mean(open) FROM \"ibm\" WHERE $timeFilter GROUP BY time($interval)",
-              "tags": [],
-              "target": ""
-            },
-            {
-              "alias": "close",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "close"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "ibm",
-              "query": "SELECT mean(close) FROM \"ibm\" WHERE $timeFilter GROUP BY time($interval)",
-              "tags": [],
-              "target": ""
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": "1d",
-          "hideTimeOverride": true,
-          "title": "Prices",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ]
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "sp500",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
-          "id": 2,
-          "interval": "1d",
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "alias": "volume",
-              "fields": [
-                {
-                  "func": "mean",
-                  "name": "volume"
-                }
-              ],
-              "groupByTags": [],
-              "measurement": "ibm",
-              "query": "SELECT mean(volume) FROM \"ibm\" WHERE $timeFilter GROUP BY time($interval)",
-              "rawQuery": false,
-              "tags": []
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": "1d",
-          "hideTimeOverride": true,
-          "title": "Volume",
-          "tooltip": {
-            "shared": true,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "x-axis": true,
-          "y-axis": true,
-          "y_formats": [
-            "short",
-            "short"
-          ]
-        }
-      ],
-      "showTitle": true,
-      "title": "IBM"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
-        {
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "sp500",
-          "editable": true,
-          "error": false,
-          "fill": 0,
-          "grid": {
-            "leftLogBase": 1,
-            "leftMax": null,
-            "leftMin": null,
-            "rightLogBase": 1,
-            "rightMax": null,
-            "rightMin": null,
-            "threshold1": null,
-            "threshold1Color": "rgba(216, 200, 27, 0.27)",
-            "threshold2": null,
-            "threshold2Color": "rgba(234, 112, 112, 0.22)"
-          },
           "id": 1,
           "interval": "1d",
           "legend": {
@@ -514,7 +117,6 @@
           ],
           "timeFrom": null,
           "timeShift": "1d",
-          "hideTimeOverride": true,
           "title": "Prices",
           "tooltip": {
             "shared": true,
@@ -547,6 +149,7 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
+          "hideTimeOverride": true,
           "id": 2,
           "interval": "1d",
           "legend": {
@@ -588,7 +191,6 @@
           ],
           "timeFrom": null,
           "timeShift": "1d",
-          "hideTimeOverride": true,
           "title": "Volume",
           "tooltip": {
             "shared": true,
@@ -604,7 +206,206 @@
         }
       ],
       "showTitle": true,
-      "title": "Google"
+      "title": "JMCR"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "sp500",
+          "editable": true,
+          "error": false,
+          "fill": 0,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "hideTimeOverride": true,
+          "id": 1,
+          "interval": "1d",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "hgih",
+              "fields": [
+                {
+                  "func": "derivative",
+                  "name": "high"
+                }
+              ],
+              "groupByTags": [],
+              "measurement": "goog",
+              "query": "SELECT derivative(high) FROM \"goog\" WHERE $timeFilter GROUP BY time($interval)",
+              "rawQuery": false,
+              "tags": []
+            },
+            {
+              "alias": "low",
+              "fields": [
+                {
+                  "func": "derivative",
+                  "name": "low"
+                }
+              ],
+              "groupByTags": [],
+              "measurement": "goog",
+              "query": "SELECT derivative(low) FROM \"goog\" WHERE $timeFilter GROUP BY time($interval)",
+              "tags": [],
+              "target": ""
+            },
+            {
+              "alias": "open",
+              "fields": [
+                {
+                  "func": "derivative",
+                  "name": "open"
+                }
+              ],
+              "groupByTags": [],
+              "measurement": "goog",
+              "query": "SELECT derivative(open) FROM \"goog\" WHERE $timeFilter GROUP BY time($interval)",
+              "tags": [],
+              "target": ""
+            },
+            {
+              "alias": "close",
+              "fields": [
+                {
+                  "func": "derivative",
+                  "name": "close"
+                }
+              ],
+              "groupByTags": [],
+              "measurement": "goog",
+              "query": "SELECT derivative(close) FROM \"goog\" WHERE $timeFilter GROUP BY time($interval)",
+              "tags": [],
+              "target": ""
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": "1d",
+          "title": "Price Derivative",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": "sp500",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "hideTimeOverride": true,
+          "id": 2,
+          "interval": "1d",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "alias": "volume",
+              "fields": [
+                {
+                  "func": "derivative",
+                  "name": "volume"
+                }
+              ],
+              "groupByTags": [],
+              "measurement": "goog",
+              "query": "SELECT derivative(volume) FROM \"goog\" WHERE $timeFilter GROUP BY time($interval)",
+              "rawQuery": false,
+              "tags": []
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": "1d",
+          "title": "Volume Derivative",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "showTitle": true,
+      "title": "Deriviatives"
     }
   ],
   "nav": [
@@ -612,7 +413,7 @@
       "collapse": false,
       "enable": true,
       "notice": false,
-      "now": true,
+      "now": false,
       "refresh_intervals": [
         "1m",
         "1h",
@@ -631,7 +432,9 @@
     {
       "collapse": false,
       "editable": true,
+      "enable": true,
       "height": "250px",
+      "notice": false,
       "panels": [
         {
           "aliasColors": {},
@@ -652,6 +455,7 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
+          "hideTimeOverride": true,
           "id": 1,
           "interval": "1d",
           "legend": {
@@ -735,7 +539,6 @@
           ],
           "timeFrom": null,
           "timeShift": "1d",
-          "hideTimeOverride": true,
           "title": "Prices",
           "tooltip": {
             "shared": true,
@@ -768,6 +571,7 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
+          "hideTimeOverride": true,
           "id": 2,
           "interval": "1d",
           "legend": {
@@ -809,7 +613,6 @@
           ],
           "timeFrom": null,
           "timeShift": "1d",
-          "hideTimeOverride": true,
           "title": "Volume",
           "tooltip": {
             "shared": true,
@@ -825,13 +628,13 @@
         }
       ],
       "showTitle": true,
-      "title": "Google"
+      "title": "JMCR"
     }
   ],
   "time": {
-    "from": "now-6M",
+    "from": "2015-02-14T00:01:32.022Z",
     "now": false,
-    "to": "now"
+    "to": "2015-08-13T23:01:32.023Z"
   },
   "templating": {
     "list": []
@@ -841,6 +644,6 @@
   },
   "refresh": "1h",
   "schemaVersion": 6,
-  "version": 1,
+  "version": 4,
   "links": []
 }

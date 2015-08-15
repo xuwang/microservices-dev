@@ -3,6 +3,6 @@ IMAGE=grafana/grafana:latest
 
 # docker run opts
 OPTS=-p 3000:3000 \
-    -v /var/lib/apps/etc:/etc/grafana \
+    -v /var/lib/apps/grafana/etc:/etc/grafana \
     -v /var/lib/apps-data/grafana/data:/var/lib/grafana \
     -v /var/lib/apps-data/grafana/logs:/var/log/grafana

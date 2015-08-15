@@ -6,6 +6,7 @@ After=docker.service
 [Service]
 EnvironmentFile=/etc/environment
 EnvironmentFile=/var/lib/apps/cadvisor/envvars
+EnvironmentFile=/var/lib/apps/influxdb/dbpass
 TimeoutStartSec=20min
 ExecStartPre=/var/lib/apps/bin/dkpull ${IMAGE}
 ExecStartPre=-/usr/bin/docker kill %n

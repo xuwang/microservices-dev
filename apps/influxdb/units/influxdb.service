@@ -12,7 +12,7 @@ ExecStartPre=/usr/bin/docker pull ${IMAGE}
 
 # Change killmode from "control-group" to "none" to let Docker remove
 # work correctly.
-#KillMode=none
+KillMode=none
 
 ExecStartPre=-/usr/bin/docker kill %n
 ExecStartPre=-/usr/bin/docker rm %n

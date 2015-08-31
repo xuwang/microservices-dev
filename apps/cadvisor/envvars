@@ -1,5 +1,6 @@
 # this is a unit env file
-IMAGE=google/cadvisor:0.7.1
+#IMAGE=google/cadvisor:0.16.0
+IMAGE=google/cadvisor:latest
 
 OPTS=-p 8080:8080 \
   -v /:/rootfs:ro \

@@ -6,7 +6,7 @@ SERVICES="
 	registry
 	#auth
 	#fleet-ui
-	mongo
+	#mongo
 	#oauth
 	#redis
 	"

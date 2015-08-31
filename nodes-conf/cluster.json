@@ -8,13 +8,15 @@
             "subnet":           "172.17.8",
             "memory":           2048,
             "ports":            [
-                                {"guest": 22,   "host": 2201,   "id": "ssh"},
-                                {"guest": 53,   "host": 5353,   "id": "dns"},
-                                {"guest": 4001, "host": 4001,   "id": "etcd"},
-                                {"guest": 6379, "host": 6379,   "id": "redis"},
-                                {"guest": 3306, "host": 3306,   "id": "mysql"},
-                                {"guest": 27017, "host": 27017, "id": "mongodb"},
-                                {"guest": 8080, "host": 8080, "id": "apps"}
+                {"guest": 22,   "host": 2201,   "id": "ssh"},
+                {"guest": 53,   "host": 5353,   "id": "dns"},
+                {"guest": 2379, "host": 2379,   "id": "etcd"},
+                {"guest": 6379, "host": 6379,   "id": "redis"},
+                {"guest": 3306, "host": 3306,   "id": "mysql"},
+                {"guest": 8000, "host": 8000, "id": "app"},
+                {"guest": 8080, "host": 8080, "id": "http"},
+                {"guest": 8443, "host": 8443, "id": "https"},
+                {"guest": 27017, "host": 27017, "id": "mongodb"}
                                 ]
         },
         "n2": {

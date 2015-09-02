@@ -24,3 +24,13 @@ login as admin/admin
 import etc/dashboards/SP500.json into grafana dashboards
 
 ```
+
+
+## Access the Influxdb UI 
+
+```
+Go to http://172.17.8.101:8083
+
+login as admin/admin
+
+```

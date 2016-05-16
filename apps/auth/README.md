@@ -2,7 +2,8 @@
 
 This service acting as a SSO proxy to backend services. It is basically a Apache server with [`mod_auth_mellon`][mod_auth_mellon] and mod_proxy.
 
-Apache module [`mod_auth_mellon`][mod_auth_mellon] enables you to authenticate users of a web site against a SAML 2.0 enabled IdP. It can grant access to paths and provide attributes to other modules and applications.
+Apache module [`mod_auth_mellon`][mod_auth_mellon] enables you to authenticate users of a web site against a SAML 2.0 enabled IdP. 
+It can grant access to paths and provide attributes to other modules and applications.
 
 ## Service Configuration
 

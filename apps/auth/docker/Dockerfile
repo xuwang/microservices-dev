@@ -1,9 +1,9 @@
-FROM ubuntu:vivid
+FROM ubuntu:16.04
 MAINTAINER Xu Wang <xuwang@gmail.com>
 
 # Install base packages
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update \
+RUN apt-get update -qq \
     && apt-get -yq install \
         apache2 \ 
         apache2-dev \ 
@@ -16,13 +16,9 @@ RUN apt-get update \
 RUN apt-get -yq install \
     liblasso3 \
     liblasso3-dev \
-    libcurl4-openssl-dev
-
-# Build auth_mellon
-ENV PKG_VERSION 0.10.0
-RUN curl -SL https://github.com/UNINETT/mod_auth_mellon/releases/download/v$PKG_VERSION/mod_auth_mellon-$PKG_VERSION.tar.gz | tar -zxvC /tmp/
-RUN cd /tmp/mod_auth_mellon-$PKG_VERSION && ./configure &&  make &&  make install && \
-    echo "LoadModule auth_mellon_module /usr/lib/apache2/modules/mod_auth_mellon.so" > /etc/apache2/mods-available/auth_mellon.load
+    libcurl4-openssl-dev \
+    libcurl4-openssl-dev \
+    libapache2-mod-auth-mellon 
 	
 # Activate a2enmod
 RUN a2enmod rewrite \
